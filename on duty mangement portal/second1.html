@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        
+.logo {
+    float: left;
+}
+
+.cent {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.cent img {
+    height: 100px; 
+    width: 100000px; 
+    margin: 0 10px; 
+}
+footer{
+    text-align:center ;
+    
+}
+.logo img {
+    height: 120px; 
+    width: auto; 
+    display: block; 
+}
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        body{
+            background-image: url("https://images.shiksha.com/mediadata/images/1520420083phpyKP3vR.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script>
+        function saveSelection() {
+            event.preventDefault();
+            const rowId = sessionStorage.getItem('rowId');
+    
+            $.ajax({
+                url: "https://api.apispreadsheets.com/data/r31AFj8gYoe8BAJm/",
+                type: "post",
+                data: $("#myForm").serializeArray(),
+                success: function () {
+                    // Redirect to entry.html
+                    window.location.href = 'entry.html';
+                },
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://th.bing.com/th/id/OIP.6t3j5DCecrzo4gTf7nm9uQHaIV?w=142&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Your Logo">
+        </div>
+    </header>
+    <header>
+        <div class="cent">
+            <img src="https://kongu.ac.in/images/header.png" alt="kongu">
+        </div>
+    </header>
+    <h1 id="selectedDepartment"></h1>
+    <p id="selectedYear"></p>
+    <p id="selectedSection"></p>
+    <p>Venue: <span id="selectedVenue"></span></p>
+    <p>Please select your name and roll number:</p>
+    <form  id="myForm">
+        <select id="name" name="studentsA">
+            
+            <option>BALA 21EER012</option>
+            <option>BARANEETHARAN S 21EER013</option>
+            <option>BARANITHARAN K 21EER014</option>
+            <option>BHARATHIPRIYAN 21EER015</option>
+            <option>CHANDRU 21EER016</option>
+            <option>CHARAN 21EER017</option>
+            <option>DARSHINI SHREE 21EER018</option>
+            <option>DEEKSHIGA 21EER019</option>
+            <option>DINESH 21EER020</option>
+        </select>
+    </form>
+   
+    <p><a onclick="saveSelection()">NEXT</a></p>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
